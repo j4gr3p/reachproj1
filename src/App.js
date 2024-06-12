@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+function App(props) {
+const cd = new Date() ;
+const colorStyle = {
+  color: props.color,
+  fontSize: props.size
+} ;
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div>
+    <h1>Hola Mundo</h1>
+    <h3>Hora: {cd.toLocaleTimeString()}</h3>
+  </div>
+    );
 }
 
 export default App;
