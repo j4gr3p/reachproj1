@@ -1,15 +1,29 @@
+import {useState,useRef } from "react";
+
 
 function App(props) {
+
+const [cont,setCont] = useState(3) ;
+
+let intCont = () => {
+  setCont( cont+1 ) ;
+}
+let decCont = () => {
+  setCont( cont-1 ) ;
+}
+
 const cd = new Date() ;
-const colorStyle = {
-  color: props.color,
-  fontSize: props.size
+const estilo = {
+  color: props.c,
+  fontSize: props.t
 } ;
   
   return (
-    <div>
-    <h1>Hola Mundo</h1>
+    <div style={estilo}>
+    <h1>Hola Mundo {cont}</h1>
     <h3>Hora: {cd.toLocaleTimeString()}</h3>
+    <button onClick={intCont}>inc</button>
+    <button onClick={decCont}>Dec</button>
   </div>
     );
 }
