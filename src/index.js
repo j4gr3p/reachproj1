@@ -5,7 +5,7 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root') );
 
-functionm ref() {
+function ref() {
   root.render(
   <App color="green" size="20px"/>
   );
