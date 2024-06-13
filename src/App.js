@@ -51,6 +51,16 @@ async function getData() {
   function verInfo() {
     console.log( "--->" + pId.current.value ) ;
     pId.current.value = 112233 ;
+    //for ( let x=0 ;  x < info.length ; x++) {
+    // for (let y in info[X] ){
+    // if ( info[X]["id"] == pId.current.value) {
+    // console.log("--->" + JSON.stringify( info[X] ) ) ;
+    //SetElem(info [X] ) ;
+    //console.log(info [X].email ) ;
+
+    //  }
+    //}
+   // }
   }
 
   return (
