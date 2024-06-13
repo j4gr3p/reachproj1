@@ -6,8 +6,8 @@ const root = ReactDOM.createRoot(document.getElementById('root') );
 function ref() {
   root.render(
     <div>
-  <App c="green" t="22px"/>
-  <App c="red" t="32px"/>
+  <App c="green" t="18px"/>
+  <App c="red" t="18px"/>
   </div>
   );
 }
