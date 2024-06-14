@@ -1,10 +1,11 @@
 import {useState,useRef, useEffect } from "react";
-
+import Comp1 from './componentes/Comp1';
 
 function App(props) {
 
 const [cont,setCont] = useState(3) ;
 const [info,setInfo] = useState([]) ;
+const [sele, setElem] = useState({}) ;
 
 let intCont = () => {
   setCont( cont+1 ) ;
@@ -21,21 +22,14 @@ const estilo = {
 
 async function getData() {
   try {
-    const rta = await fetch( 'http://jsonplaceholder.typicode.com/posts/1/comments', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    } ) ;
+    const rta = await fetch( 'http://jsonplaceholder.typicode.com/posts/1/comments',) ;
 
     if( !rta.ok ) {
       throw new Error( "Er:" + rta.error ) ;
     }
     
     let datos = await rta.json() ;
-    
     setInfo( datos ) ;
-
   } catch (error) {
     console.log( "ERROR:" + error ) ;
   }
@@ -43,37 +37,37 @@ async function getData() {
   function getDatos() {
     getData() ;
   }
-
-  useEffect( () =>{getDatos();}, [cont] ) ;
-
   const pId = useRef(1) ;
+  const pBc = useRef("gray") ;
 
-  function verInfo() {
-    console.log( "--->" + pId.current.value ) ;
-    pId.current.value = 112233 ;
-    //for ( let x=0 ;  x < info.length ; x++) {
-    // for (let y in info[X] ){
-    // if ( info[X]["id"] == pId.current.value) {
-    // console.log("--->" + JSON.stringify( info[X] ) ) ;
-    //SetElem(info [X] ) ;
-    //console.log(info [X].email ) ;
+  let verId = () => {
+    console.log( "===>"+ pId.current.value + "---" + info.length ) ;
+  }
 
-    //  }
-    //}
-   // }
+  for (const o of info ) {
+    if ( o.id ==pId.current.value ){
+      setElem( o ) ;
+    }
   }
 
   return (
     <div style={estilo}>
     <h1>Hola Mundo {cont}</h1>
-    <h3>Hora: {cd.toLocaleTimeString()}</h3>
+    <h3>Hora: {cd.toLocaleTimeString()} - {cont}</h3>
+    
+    <div>
+    <Comp1 obj={sele} bc="pink"/>
+    </div>
 
     <input ref={pId} type="text" placeholder="buscar x id"/>
+    <input ref={pBc} type="text" placeholder="Color..."/>
+
 
     <button onClick={intCont}>inc</button>
     <button onMouseOver={decCont}>Dec</button>
     <button onClick={getDatos}>Consultar</button>
-    <button onClick={verInfo}>Buscar</button>
+    <button onClick={verId}>verId</button>
+    
     <div>
         <ul>
           {info.map(
