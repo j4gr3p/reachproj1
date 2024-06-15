@@ -7,9 +7,9 @@ function ref() {
   root.render(
     <div>
   <App c="green" t="18px"/>
-  <App c="red" t="18px"/>
+  <App c="black" t="18px"/>
   </div>
   );
 }
 
-setInterval( ref,1000 );
+setInterval( ref,1000 ) ;

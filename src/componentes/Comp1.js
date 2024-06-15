@@ -1,7 +1,12 @@
+import React, { useState, useEffect } from 'react';
 
 function Comp1(props) {
     const estilo = {
         backgroundColor: props.bc
+    }
+
+    let msgXPapa = () => {
+        props.fPapa = "Hola padre"
     }
     return(
         <div>
@@ -24,6 +29,11 @@ function Comp1(props) {
                         <td>{props.obj.body}</td>
                     </tr>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <button onClick={msgXPapa}>Enviar mensaje</button>
+                    </tr>
+                </tfoot>
                </table>
             <div>
                 <p>Elemento seleccionado</p>
