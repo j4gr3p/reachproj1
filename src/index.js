@@ -7,7 +7,6 @@ function ref() {
   root.render(
     <div>
   <App c="green" t="18px"/>
-  <App c="black" t="18px"/>
   </div>
   );
 }
