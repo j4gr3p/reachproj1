@@ -1,5 +1,6 @@
 import {useState,useRef, useEffect } from "react";
 import Comp1 from './componentes/Comp1';
+import Comp2 from './componentes/Comp2';
 
 function App(props) {
   const cd = new Date () ;
@@ -62,7 +63,10 @@ const pBc = useRef(1) ;
       <h3>Hora: {cd.toLocaleTimeString()} - {cont}</h3>
 
       <div>
-        <Comp1 obj={sele} bc={bbcc}/>
+        <Comp1 obj={sele} bc={bbcc} fPapa={msgDelHijo}/>
+      </div>
+      <div>
+        <Comp2 />
       </div>
 
       <input ref={pId} type="text" placeholder="buscar x id" />

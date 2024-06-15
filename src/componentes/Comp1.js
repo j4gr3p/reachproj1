@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import {useRef } from "react";
 
 function Comp1(props) {
+
     const estilo = {
         backgroundColor: props.bc
     }
 
     let msgXPapa = () => {
-        props.fPapa = "Hola padre"
+        props.fPapa( msg.current.value ) ;
     }
+
+    const msg = useRef("Hola Padre") ;
+
     return(
         <div>
             <h1>Hola componente</h1>
+            <input ref={msg} type="text" placeholder="Que quieres decirle a tu padre"/>
             <div>
                <table border="1" cellPadding="10" cellSpacing="2">
                 <thead style={estilo}>
